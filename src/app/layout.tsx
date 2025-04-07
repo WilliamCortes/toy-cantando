@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "line-awesome/dist/line-awesome/css/line-awesome.min.css";
 
+// Tipografía personalizada
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -13,10 +14,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Metadatos del sitio
 export const metadata: Metadata = {
   title: "Los Mejores Cuentos Infantiles para leer en familia",
   description:
-    "Los mejores cuentos infantiles para niños y niñas. Cuentos clasicos para dormir y muchos más que tiene Toy Cantando",
+    "Los mejores cuentos infantiles para niños y niñas. Cuentos clásicos para dormir y muchos más que tiene Toy Cantando",
   metadataBase: new URL("https://toycantando.com"),
   alternates: {
     canonical: "/cuentos-infantiles-para-ninos/",
@@ -24,16 +26,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Los Mejores Cuentos Infantiles para leer en familia",
     description:
-      "Los mejores cuentos infantiles para niños y niñas. Cuentos clasicos para dormir y muchos más que tiene Toy Cantando",
+      "Los mejores cuentos infantiles para niños y niñas. Cuentos clásicos para dormir y muchos más que tiene Toy Cantando",
     url: "https://toycantando.com/cuentos-infantiles-para-ninos/",
     siteName: "Toy Cantando canciones infantiles - La Vaca Lola",
     locale: "es_ES",
     type: "article",
     images: [
       {
-        url: "https://toycantando.com/wp-content/uploads/2020/11/logo-toy-cantando-vaca-lola.png",
-        width: 192,
-        height: 80,
+        url: "https://toycantando.com/wp-content/uploads/2022/12/LOGO-TOY.png",
+        width: 1200,
+        height: 630,
+        alt: "Toy Cantando - La Vaca Lola",
       },
     ],
   },
@@ -41,35 +44,36 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Los Mejores Cuentos Infantiles para leer en familia",
     description:
-      "Los mejores cuentos infantiles para niños y niñas. Cuentos clasicos para dormir y muchos más que tiene Toy Cantando",
+      "Los mejores cuentos infantiles para niños y niñas. Cuentos clásicos para dormir y muchos más que tiene Toy Cantando",
+    images: ["https://toycantando.com/wp-content/uploads/2022/12/LOGO-TOY.png"],
   },
-  other: {
-    "twitter:label1": "Tiempo de lectura",
-    "twitter:data1": "1 minuto",
-    "article:publisher": "https://www.facebook.com/ToyCantando",
-    "article:modified_time": "2025-02-13T00:44:51+00:00",
+  icons: {
+    icon: "/favicon.ico",
   },
   robots: {
     index: true,
     follow: true,
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
-  verification: {
-    other: {
-      "facebook-domain-verification": ["your-verification-code"],
-    },
-  },
-  applicationName: "Toy Cantando - Canciones infantiles",
-  authors: [{ name: "Toy Cantando" }],
-  generator: "Next.js",
   keywords: [
     "cuentos infantiles",
     "cuentos para niños",
     "cuentos para dormir",
     "toy cantando",
   ],
+  applicationName: "Toy Cantando - Canciones infantiles",
+  authors: [{ name: "Toy Cantando" }],
+  generator: "Next.js",
+  other: {
+    "twitter:label1": "Tiempo de lectura",
+    "twitter:data1": "1 minuto",
+    "article:publisher": "https://www.facebook.com/ToyCantando",
+    "article:modified_time": "2025-02-13T00:44:51+00:00",
+  },
+  verification: {
+    other: {
+      "facebook-domain-verification": ["your-verification-code"],
+    },
+  },
 };
 
 export default function RootLayout({
@@ -80,6 +84,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Marcado estructurado JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -98,7 +103,7 @@ export default function RootLayout({
                   datePublished: "2023-01-11T19:47:03+00:00",
                   dateModified: "2025-02-13T00:44:51+00:00",
                   description:
-                    "Los mejores cuentos infantiles para niños y niñas. Cuentos clasicos para dormir y muchos más que tiene Toy Cantando",
+                    "Los mejores cuentos infantiles para niños y niñas. Cuentos clásicos para dormir y muchos más que tiene Toy Cantando",
                   breadcrumb: {
                     "@id":
                       "https://toycantando.com/cuentos-infantiles-para-ninos/#breadcrumb",
@@ -127,7 +132,7 @@ export default function RootLayout({
                     {
                       "@type": "ListItem",
                       position: 2,
-                      name: "Cuentos Magicos",
+                      name: "Cuentos Mágicos",
                     },
                   ],
                 },
@@ -136,25 +141,22 @@ export default function RootLayout({
                   "@id": "https://toycantando.com/#website",
                   url: "https://toycantando.com/",
                   name: "Toy Cantando canciones infantiles - La Vaca Lola",
-                  description: "",
                   publisher: {
                     "@id": "https://toycantando.com/#organization",
                   },
-                  potentialAction: [
-                    {
-                      "@type": "SearchAction",
-                      target: {
-                        "@type": "EntryPoint",
-                        urlTemplate:
-                          "https://toycantando.com/?s={search_term_string}",
-                      },
-                      "query-input": {
-                        "@type": "PropertyValueSpecification",
-                        valueRequired: true,
-                        valueName: "search_term_string",
-                      },
+                  potentialAction: {
+                    "@type": "SearchAction",
+                    target: {
+                      "@type": "EntryPoint",
+                      urlTemplate:
+                        "https://toycantando.com/?s={search_term_string}",
                     },
-                  ],
+                    "query-input": {
+                      "@type": "PropertyValueSpecification",
+                      valueRequired: true,
+                      valueName: "search_term_string",
+                    },
+                  },
                   inLanguage: "es",
                 },
                 {
@@ -166,9 +168,9 @@ export default function RootLayout({
                     "@type": "ImageObject",
                     inLanguage: "es",
                     "@id": "https://toycantando.com/#/schema/logo/image/",
-                    url: "https://toycantando.com/wp-content/uploads/2020/11/logo-toy-cantando-vaca-lola.png",
+                    url: "https://toycantando.com/wp-content/uploads/2022/12/LOGO-TOY.png",
                     contentUrl:
-                      "https://toycantando.com/wp-content/uploads/2020/11/logo-toy-cantando-vaca-lola.png",
+                      "https://toycantando.com/wp-content/uploads/2022/12/LOGO-TOY.png",
                     width: 192,
                     height: 80,
                     caption: "Toy Cantando - Canciones infantiles",
